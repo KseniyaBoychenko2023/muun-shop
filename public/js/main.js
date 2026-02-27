@@ -418,7 +418,7 @@ function createFavoriteCard(item) {
     card.addEventListener('click', (e) => {
         // Не переходим на страницу товара, если кликнули на кнопку
         if (!e.target.closest('button')) {
-            window.location.href = `/product/${item.id}`;
+            window.location.href = `/product.html?id=${item.id}`;
         }
     });
 
@@ -607,7 +607,7 @@ function createCartItemCard(item) {
     card.addEventListener('click', (e) => {
         // Не переходим на страницу товара, если кликнули на кнопку или на блок с количеством
         if (!e.target.closest('button') && !e.target.closest('.item-quantity')) {
-            window.location.href = `/product/${item.id}`;
+            window.location.href = `/product.html?id=${item.id}`;
         }
     });
 
@@ -857,7 +857,7 @@ document.addEventListener('click', (e) => {
     if (productCard && !e.target.closest('button')) {
         const productId = productCard.dataset.id;
         if (productId) {
-            window.location.href = `/product/${productId}`;
+            window.location.href = `/product.html?id=${productId}`;
         }
     }
 });

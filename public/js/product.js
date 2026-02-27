@@ -1,16 +1,14 @@
-// Получаем ID товара из URL
-// const productId = window.location.pathname.split('/').pop();
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
 // Загружаем данные товара при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-    loadProductDetails();
+    loadProductDetails(productId);
 });
 
-async function loadProductDetails() {
+async function loadProductDetails(id) {
     try {
-        const response = await fetch(`${API_URL}/products/${productId}`);
+        const response = await fetch(`${API_URL}/products/${id}`);
         
         if (!response.ok) {
             throw new Error('Товар не найден');
