@@ -756,15 +756,25 @@ if (checkoutForm) {
         if (!validateAllFields()) {
             return;
         }
+
+        const addressBase = document.getElementById('address').value.trim();
+        const apartment = document.getElementById('apartment').value.trim();
+        const entrance = document.getElementById('entrance').value.trim();
+        const floor = document.getElementById('floor').value.trim();
+
+        // Собираем дополнительные части адреса
+        const addressParts = [addressBase];
+        if (apartment) addressParts.push(`кв ${apartment}`);
+        if (entrance) addressParts.push(`под ${entrance}`);
+        if (floor) addressParts.push(`эт ${floor}`);
+
+        const fullAddress = addressParts.join(', ');
         
         const formData = {
             deliveryRecipient: document.getElementById('recipient').value.trim(),
             deliveryPhone: document.getElementById('phone').value.trim(),
             deliveryCity: document.getElementById('city').value.trim(),
-            deliveryAddress: document.getElementById('address').value.trim(),
-            deliveryEntrance: document.getElementById('entrance').value.trim() || null,
-            deliveryFloor: document.getElementById('floor').value.trim() || null,
-            deliveryApartment: document.getElementById('apartment').value.trim() || null,
+            deliveryAddress: fullAddress,
             deliveryPostalCode: document.getElementById('postal-code').value.trim() || undefined,
             paymentMethod: document.querySelector('input[name="payment-method"]:checked').value
         };
