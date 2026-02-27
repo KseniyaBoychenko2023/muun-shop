@@ -17,7 +17,8 @@
     text-align: center;
 }
 
-/* Пустое состояние */
+/* ПУСТОЕ СОСТОЯНИЕ */
+
 .empty-state {
     text-align: center;
     padding: 80px 20px;
@@ -40,7 +41,8 @@
     padding: 14px 40px;
 }
 
-/* Сетка избранного */
+/* СЕТКА ИЗБРАННОГО */
+
 .favorites-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -76,11 +78,11 @@
 }
 
 .favorite-info {
-    pointer-events: none; /* Чтобы текст не перехватывал клики */
+    pointer-events: none;
 }
 
 .favorite-info button {
-    pointer-events: auto; /* Кнопки должны быть кликабельны */
+    pointer-events: auto;
 }
 
 .remove-btn {
@@ -151,7 +153,8 @@
     color: white;
 }
 
-/* Адаптивность */
+/* АДАПТИВНОСТЬ */
+
 @media (max-width: 768px) {
     .favorites-page {
         padding: 120px 5vw 60px;

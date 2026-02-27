@@ -1,164 +1,165 @@
 .profile-page {
-  min-height: 100vh;
-  padding: 140px 5vw 80px;
-  background: #faf8f5;
+    min-height: 100vh;
+    padding: 140px 5vw 80px;
+    background: #faf8f5;
 }
 
 .profile-container {
-  max-width: 900px;
-  margin: 0 auto;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .profile-header {
-  margin-bottom: 50px;
-  text-align: center;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .profile-header h1 {
-  font-size: 3.2rem;
-  font-weight: 400;
-  letter-spacing: -1px;
-  margin-bottom: 15px;
-  color: #1a1a1a;
+    font-size: 3.2rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
 }
 
 .profile-header p {
-  font-size: 1rem;
-  color: #888;
-  font-weight: 300;
-  letter-spacing: 0.5px;
+    font-size: 1rem;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 .profile-section {
-  background: white;
-  padding: 40px 45px;
-  margin-bottom: 30px;
-  border: none;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02);
-  border-radius: 2px;
+    background: white;
+    padding: 40px 45px;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
 }
 
 .section-title {
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f0f0f0;
-  color: #1a1a1a;
-  letter-spacing: -0.3px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
 }
 
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 40px;
 }
 
 .info-item {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .info-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #999;
-  margin-bottom: 8px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #999;
+    margin-bottom: 8px;
 }
 
 .info-value {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1.4;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.4;
 }
 
+/* КНОПКА РЕДАКТИРОВАНИЯ ИМЕНИ */
+
 .edit-btn {
-  background: none;
-  border: 1px solid #ddd;
-  padding: 12px 35px;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 30px;
-  font-family: 'Inter', sans-serif;
-  color: #4a4a4a;
-  border-radius: 2px;
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid #1a1a1a;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.edit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
 }
 
 .edit-btn:hover {
-  background: #1a1a1a;
-  color: white;
-  border-color: #1a1a1a;
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.edit-btn:active {
+    transform: translateY(0);
 }
 
 .empty-state {
-  text-align: center;
-  padding: 60px 30px;
-  background: #faf8f5;
-  border: 1px solid #f0f0f0;
-  border-radius: 2px;
+    text-align: center;
+    padding: 60px 30px;
+    background: #faf8f5;
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
 }
 
 .empty-state p {
-  color: #888;
-  margin-bottom: 25px;
-  font-size: 1rem;
+    color: #888;
+    margin-bottom: 25px;
+    font-size: 1rem;
 }
 
 .empty-state .btn {
-  display: inline-block;
-  width: auto;
-  padding: 12px 35px;
-  font-size: 0.85rem;
-  background: #1a1a1a;
-  color: white;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  border-radius: 2px;
+    display: inline-block;
+    width: auto;
+    padding: 12px 35px;
+    font-size: 0.85rem;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
 }
 
 .empty-state .btn:hover {
-  background: #333;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .profile-page {
-    padding: 120px 5vw 60px;
-  }
-
-  .profile-header h1 {
-    font-size: 2.4rem;
-  }
-
-  .profile-section {
-    padding: 30px 25px;
-  }
-
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .section-title {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-  }
-
-  .info-value {
-    font-size: 1.1rem;
-  }
-
-  .edit-btn {
-    width: 100%;
-    padding: 12px;
-  }
+    background: #333;
 }
 
 .orders-container {
@@ -302,8 +303,8 @@
     padding: 12px 35px;
 }
 
+/* МОДАЛЬНОЕ ОКНО ОТМЕНЫ */
 
-/* Стили для модального окна отмены */
 .cancel-modal-content {
     max-width: 400px;
     text-align: center;
@@ -335,9 +336,21 @@
     margin-bottom: 10px;
 }
 
-/* Стили для модального окна деталей заказа */
+/* МОДАЛЬНОЕ ОКНО ДЕТАЛЕЙ ЗАКАЗА */
+
 .details-modal-content {
     max-width: 600px;
+}
+
+.details-modal-content .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.details-modal-content .modal-footer .btn {
+    min-width: 100px;
+    margin-right: 15px;
 }
 
 .order-details-header {
@@ -478,7 +491,8 @@
     margin-top: 5px;
 }
 
-/* Стили для формы в модальном окне */
+/* ФОРМА В МОДАЛЬНОМ ОКНЕ */
+
 .modal .form-group {
     display: flex;
     flex-direction: column;
@@ -530,7 +544,8 @@
     opacity: 1;
 }
 
-/* Стили для сообщений в модальном окне */
+/* СООБЩЕНИЯ В МОДАЛЬНОМ ОКНЕ */
+
 .modal .error-message,
 .modal .info-message,
 .modal .success-message {
@@ -560,19 +575,130 @@
     border: 1px solid #e3f0e3;
 }
 
-/* Анимация для сообщений */
 @keyframes slideDown {
     from {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Стили для кнопок в модальном окне */
+/* КНОПКА "ОТМЕНИТЬ" В БЛОКЕ "МОИ ЗАКАЗЫ" */
+.order-actions .btn-small.btn-outline {
+    display: inline-block;
+    padding: 10px 14px;
+    background: transparent;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid #1a1a1a;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.order-actions .btn-small.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+.order-actions .btn-small.btn-outline:hover {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-actions .btn-small.btn-outline:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.order-actions .btn-small.btn-outline:active {
+    transform: translateY(0);
+}
+
+/* КНОПКА "ПОДРОБНЕЕ" В БЛОКЕ "МОИ ЗАКАЗЫ" */
+.order-actions .btn-small:not(.btn-outline) {
+    display: inline-block;
+    padding: 10px 14px;
+    background: transparent;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid #1a1a1a;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.order-actions .btn-small:not(.btn-outline)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+.order-actions .btn-small:not(.btn-outline):hover {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-actions .btn-small:not(.btn-outline):hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.order-actions .btn-small:not(.btn-outline):active {
+    transform: translateY(0);
+}
+
+/* КНОПКИ В МОДАЛЬНОМ ОКНЕ */
+
 .modal .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -638,7 +764,6 @@
     border-color: #1a1a1a;
 }
 
-/* Специально для кнопок в модальном окне отмены */
 .cancel-modal-content .modal-footer {
     display: flex;
     gap: 12px;
@@ -651,19 +776,8 @@
     max-width: 160px;
 }
 
-/* Для модального окна деталей заказа */
-.details-modal-content .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
+/* МОДАЛЬНОЕ ОКНО УСПЕХА ПРИ ОФОРМЛЕНИИ ЗАКАЗА */
 
-.details-modal-content .modal-footer .btn {
-    min-width: 100px;
-    margin-right: 15px;
-}
-
-/* Для модального окна успеха в checkout */
 .success-modal-content .modal-footer {
     display: flex;
     gap: 12px;
@@ -671,4 +785,287 @@
 
 .success-modal-content .modal-footer .btn {
     flex: 1;
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 1024px) {
+    .order-card {
+        padding: 18px;
+    }
+
+    .order-header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .order-actions {
+        gap: 8px;
+    }
+
+    .order-actions .btn-small {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-page {
+        padding: 120px 5vw 60px;
+    }
+
+    .profile-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .profile-section {
+        padding: 30px 25px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+    }
+
+    .edit-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .order-card {
+        padding: 15px;
+    }
+
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .order-number {
+        font-size: 1rem;
+    }
+
+    .order-date {
+        font-size: 0.85rem;
+    }
+
+    .order-status {
+        align-self: flex-start;
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+
+    .order-item-row {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 0;
+    }
+
+    .order-item-name {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .order-item-name small {
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 8px;
+    }
+
+    .order-item-price {
+        font-size: 0.95rem;
+        font-weight: 600;
+        width: 100%;
+        text-align: left;
+        color: #1a1a1a;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .order-total {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .order-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-actions .btn-small {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .order-actions .btn-small:first-child {
+        margin-bottom: 0;
+    }
+
+    .edit-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .cancel-modal-content .modal-footer,
+    .success-modal-content .modal-footer,
+    .details-modal-content .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .cancel-modal-content .modal-footer .btn,
+    .success-modal-content .modal-footer .btn,
+    .details-modal-content .modal-footer .btn {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+        min-width: unset;
+    }
+
+    .details-modal-content .modal-footer {
+        justify-content: center;
+    }
+
+    .details-modal-content .modal-footer .btn {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-header {
+        gap: 6px;
+    }
+
+    .order-number {
+        font-size: 0.95rem;
+    }
+
+    .order-item-name {
+        font-size: 0.85rem;
+    }
+
+    .order-item-name small {
+        font-size: 0.75rem;
+    }
+
+    .order-item-price {
+        font-size: 0.9rem;
+    }
+
+    .order-actions .btn-small {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+
+    .empty-orders {
+        padding: 40px 20px;
+    }
+
+    .empty-orders .btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    .edit-btn {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+
+    .cancel-modal-content .modal-footer .btn,
+    .success-modal-content .modal-footer .btn,
+    .details-modal-content .modal-footer .btn {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+
+    .warning-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        margin: 15px auto 20px;
+    }
+
+    .warning-message {
+        font-size: 1.1rem;
+    }
+
+    .warning-submessage {
+        font-size: 0.9rem;
+    }
+
+    .order-details-number {
+        font-size: 1.1rem;
+    }
+
+    .order-details-date {
+        font-size: 0.85rem;
+    }
+
+    .order-details-status {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    .order-details-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .order-details-item-price {
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .delivery-info p {
+        font-size: 0.85rem;
+    }
+
+    .payment-method-badge {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .cancel-modal-content .modal-footer .btn,
+    .success-modal-content .modal-footer .btn,
+    .details-modal-content .modal-footer .btn {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+
+    .warning-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    .warning-message {
+        font-size: 1rem;
+    }
 }

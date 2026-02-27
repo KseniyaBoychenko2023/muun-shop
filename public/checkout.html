@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/checkout.css" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav>
@@ -27,26 +29,28 @@
     <main class="checkout-page">
         <div class="checkout-container">
             <h1 class="page-title">Оформление заказа</h1>
-            
+
             <div class="checkout-content">
                 <!-- Форма доставки -->
                 <div class="checkout-form">
                     <h2 class="section-title">Данные получателя</h2>
-                    
+
                     <div id="error-message" class="error-message" style="display: none;"></div>
-                    
+
                     <form id="checkout-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="recipient">Получатель *</label>
-                                <input type="text" id="recipient" name="recipient" placeholder="Иванова Анна" value="" autocomplete="off">
+                                <input type="text" id="recipient" name="recipient" placeholder="Иванова Анна" value=""
+                                    autocomplete="off">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Телефон *</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" value="" autocomplete="off">
+                                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" value=""
+                                    autocomplete="off">
                             </div>
                         </div>
 
@@ -55,7 +59,8 @@
                         <div class="form-row">
                             <div class="form-group city-selector">
                                 <label for="city">Город *</label>
-                                <input type="text" id="city" name="city" placeholder="Начните вводить город..." value="" autocomplete="off">
+                                <input type="text" id="city" name="city" placeholder="Начните вводить город..." value=""
+                                    autocomplete="off">
                                 <div id="city-dropdown" class="city-dropdown"></div>
                             </div>
                         </div>
@@ -63,7 +68,8 @@
                         <div class="form-row">
                             <div class="form-group address-selector">
                                 <label for="address">Улица, дом *</label>
-                                <input type="text" id="address" name="address" placeholder="Начните вводить улицу и дом..." value="" autocomplete="off">
+                                <input type="text" id="address" name="address"
+                                    placeholder="Начните вводить улицу и дом..." value="" autocomplete="off">
                                 <div id="address-dropdown" class="address-dropdown"></div>
                             </div>
                         </div>
@@ -72,7 +78,8 @@
                         <div class="form-row details-row">
                             <div class="form-group small">
                                 <label for="entrance">Подъезд</label>
-                                <input type="text" id="entrance" name="entrance" placeholder="1" value="" autocomplete="off">
+                                <input type="text" id="entrance" name="entrance" placeholder="1" value=""
+                                    autocomplete="off">
                             </div>
                             <div class="form-group small">
                                 <label for="floor">Этаж</label>
@@ -80,15 +87,16 @@
                             </div>
                             <div class="form-group small">
                                 <label for="apartment">Квартира</label>
-                                <input type="text" id="apartment" name="apartment" placeholder="5" value="" autocomplete="off">
+                                <input type="text" id="apartment" name="apartment" placeholder="5" value=""
+                                    autocomplete="off">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="postal-code">Почтовый индекс</label>
-                                <input type="text" id="postal-code" name="postal-code" 
-                                       placeholder="101000" value="" autocomplete="off" readonly>
+                                <input type="text" id="postal-code" name="postal-code" placeholder="101000" value=""
+                                    autocomplete="off" readonly>
                             </div>
                         </div>
 
@@ -157,8 +165,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Подключаем DaData -->
     <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@22.6.0/dist/js/jquery.suggestions.min.js"></script>
-    
+
     <script src="js/main.js"></script>
     <script src="js/checkout.js"></script>
 </body>
+
 </html>

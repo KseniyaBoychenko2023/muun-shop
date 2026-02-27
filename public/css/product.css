@@ -17,7 +17,8 @@
     border-radius: 2px;
 }
 
-/* Левая колонка - изображение */
+/* ЛЕВАЯ КОЛОНКА С ИЗОБРАЖЕНИЕМ */
+
 .product-images {
     position: relative;
 }
@@ -34,7 +35,8 @@
     filter: grayscale(0%);
 }
 
-/* Правая колонка - информация */
+/* ПРАВАЯ КОЛОНКА С ИНФОРМАЦИЕЙ */
+
 .product-info {
     display: flex;
     flex-direction: column;
@@ -71,7 +73,8 @@
     padding-bottom: 25px;
 }
 
-/* Описание и материалы */
+/* ОПИСАНИЕ И МАТЕРИАЛ */
+
 .product-description,
 .product-materials {
     margin-bottom: 10px;
@@ -96,7 +99,8 @@
     font-weight: 300;
 }
 
-/* Выбор размера */
+/* ВЫБОР РАЗМЕРА */
+
 .size-selector {
     margin: 10px 0 20px;
 }
@@ -163,13 +167,14 @@
     background: #f9f7f4;
 }
 
-.size-option input:checked + span {
+.size-option input:checked+span {
     border-color: #1a1a1a;
     background: #1a1a1a;
     color: white;
 }
 
-/* Кнопки действий */
+/* КНОПКИ */
+
 .product-actions-large {
     display: flex;
     gap: 15px;
@@ -203,7 +208,8 @@
     transform: translateY(-2px);
 }
 
-/* Модальное окно размерной сетки */
+/* МОДАЛЬНОЕ ОКНО РАЗМЕРНОЙ СЕТКИ */
+
 .modal {
     position: fixed;
     top: 0;
@@ -263,7 +269,8 @@
     padding: 30px;
 }
 
-/* Таблица размеров */
+/* ТАБЛИЦА РАЗМЕРОВ */
+
 .size-table {
     width: 100%;
     border-collapse: collapse;
@@ -305,10 +312,14 @@
     border-top: 1px solid #f0f0f0;
 }
 
-/* Анимации */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideUp {
@@ -316,13 +327,15 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Загрузка и ошибки */
+/* ЗАГРУЗКА И ОШИБКИ */
+
 .loading,
 .error-message {
     text-align: center;
@@ -354,7 +367,19 @@
     text-decoration: none;
 }
 
-/* Адаптивность */
+.add-to-favorites-page.active {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+.product-container *,
+.modal-content * {
+    transition: all 0.2s ease;
+}
+
+/* АДАПТИВНОСТЬ */
+
 @media (max-width: 1024px) {
     .product-container {
         gap: 40px;
@@ -456,17 +481,4 @@
     .size-table td {
         padding: 10px 8px;
     }
-}
-
-/* Стили для активного состояния кнопки избранного */
-.add-to-favorites-page.active {
-    background: #1a1a1a;
-    color: white;
-    border-color: #1a1a1a;
-}
-
-/* Добавляем плавность всем переходам */
-.product-container *,
-.modal-content * {
-    transition: all 0.2s ease;
 }

@@ -24,7 +24,8 @@
     align-items: start;
 }
 
-/* Форма */
+/* ФОРМА */
+
 .checkout-form {
     background: white;
     padding: 40px;
@@ -82,7 +83,8 @@
     font-size: 0.9rem;
 }
 
-/* Способ оплаты */
+/* СПОСОБ ОПЛАТЫ */
+
 .payment-methods {
     margin: 20px 0 30px;
     display: flex;
@@ -122,11 +124,11 @@
     transition: all 0.2s;
 }
 
-.payment-option input:checked + .payment-radio {
+.payment-option input:checked+.payment-radio {
     border-color: #1a1a1a;
 }
 
-.payment-option input:checked + .payment-radio::after {
+.payment-option input:checked+.payment-radio::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -143,14 +145,16 @@
     color: #333;
 }
 
-/* Кнопки формы */
+/* КНОПКИ */
+
 .form-actions {
     display: flex;
     gap: 15px;
     margin-top: 30px;
 }
 
-.form-actions .btn, .form-actions a{
+.form-actions .btn,
+.form-actions a {
     flex: 1;
     padding: 16px 24px;
     text-align: center;
@@ -160,7 +164,8 @@
     min-width: 200px;
 }
 
-/* Боковая панель с заказом */
+/* БОКОВАЯ ПАНЕЛЬ С ЗАКАЗОМ */
+
 .order-summary {
     background: white;
     padding: 30px;
@@ -234,7 +239,8 @@
     color: #000;
 }
 
-/* Модальное окно успеха */
+/* МОДАЛЬНОЕ ОКНО УСПЕХА */
+
 .success-modal-content {
     max-width: 450px;
     text-align: center;
@@ -278,49 +284,15 @@
     border-top: 1px solid #f0f0f0;
 }
 
-.modal-footer .btn, a.btn {
+.modal-footer .btn,
+a.btn {
     flex: 1;
     margin: 0;
     min-width: 160px;
 }
 
-/* Адаптивность */
-@media (max-width: 1024px) {
-    .checkout-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .order-summary {
-        position: static;
-    }
-}
+/* СООБЩЕНИЕ ОБ ОШИБКЕ */
 
-@media (max-width: 768px) {
-    .checkout-page {
-        padding: 120px 5vw 60px;
-    }
-    
-    .page-title {
-        font-size: 2.4rem;
-        margin-bottom: 40px;
-    }
-    
-    .checkout-form {
-        padding: 25px;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .modal-footer {
-        flex-direction: column;
-    }
-}
-
-/* ========== СТИЛИ ДЛЯ ОШИБОК ВАЛИДАЦИИ ========== */
-
-/* Общее сообщение об ошибке */
 .error-message {
     background: #fef6f6;
     color: #e74c3c;
@@ -352,7 +324,8 @@
     text-align: center;
 }
 
-/* Поле с ошибкой */
+/* ПОЛЕ С ОШИБКОЙ */
+
 .form-group input.error {
     border-color: #e74c3c;
     background: #fef6f6;
@@ -369,7 +342,8 @@
     opacity: 0.7;
 }
 
-/* Сообщение под полем */
+/* СООБЩЕНИЕ ПОД ПОЛЕМ */
+
 .field-error-message {
     color: #e74c3c;
     font-size: 0.8rem;
@@ -380,12 +354,12 @@
     letter-spacing: 0.2px;
 }
 
-/* Анимации */
 @keyframes slideDown {
     from {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -393,9 +367,19 @@
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
 }
 
 @keyframes fadeIn {
@@ -403,13 +387,13 @@
         opacity: 0;
         transform: translateY(-5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Улучшенные стили для placeholder */
 .form-group input::placeholder {
     color: #aaa;
     font-size: 0.9rem;
@@ -422,7 +406,6 @@
     opacity: 0.5;
 }
 
-/* Стили для сообщения "Вы пропустили это поле" */
 .field-error-message.required {
     font-style: italic;
 }
@@ -432,13 +415,15 @@
     font-size: 0.9rem;
 }
 
-/* ========== СТИЛИ ДЛЯ DADATA ========== */
+/* СТИЛИ ДЛЯ DADATA */
 
-.city-selector, .address-selector {
+.city-selector,
+.address-selector {
     position: relative;
 }
 
-.city-dropdown, .address-dropdown {
+.city-dropdown,
+.address-dropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -454,11 +439,13 @@
     border-radius: 0 0 4px 4px;
 }
 
-.city-dropdown.active, .address-dropdown.active {
+.city-dropdown.active,
+.address-dropdown.active {
     display: block;
 }
 
-.city-dropdown-item, .address-dropdown-item {
+.city-dropdown-item,
+.address-dropdown-item {
     padding: 10px 15px;
     cursor: pointer;
     transition: background 0.2s;
@@ -467,21 +454,26 @@
     border-bottom: 1px solid #f5f5f5;
 }
 
-.city-dropdown-item:last-child, .address-dropdown-item:last-child {
+.city-dropdown-item:last-child,
+.address-dropdown-item:last-child {
     border-bottom: none;
 }
 
-.city-dropdown-item:hover, .address-dropdown-item:hover {
+.city-dropdown-item:hover,
+.address-dropdown-item:hover {
     background: #f9f7f4;
 }
 
-.city-dropdown-item.selected, .address-dropdown-item.selected {
+.city-dropdown-item.selected,
+.address-dropdown-item.selected {
     background: #f0f0f0;
     font-weight: 500;
 }
 
-/* Стили для сообщения "Ничего не найдено" */
-.city-dropdown-empty, .address-dropdown-empty {
+/* СТИЛИ ДЛЯ ПУСТОГО СПИСКА */
+
+.city-dropdown-empty,
+.address-dropdown-empty {
     padding: 15px;
     text-align: center;
     color: #888;
@@ -489,23 +481,23 @@
     font-style: italic;
 }
 
-/* Подсветка при наборе текста */
-#city.highlight, #address.highlight {
+#city.highlight,
+#address.highlight {
     border-color: #1a1a1a;
     background: white;
 }
 
-/* Стили для выбранного города/адреса */
-#city.valid, #address.valid {
+#city.valid,
+#address.valid {
     border-color: #27ae60;
     background: #f0f9f0;
 }
 
-#city.valid:focus, #address.valid:focus {
+#city.valid:focus,
+#address.valid:focus {
     border-color: #27ae60;
 }
 
-/* Стили для поля индекса (только для чтения) */
 #postal-code {
     background: #f5f5f5;
     cursor: default;
@@ -516,7 +508,6 @@
     background: #f5f5f5;
 }
 
-/* Стили для ряда с дополнительными полями */
 .details-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -550,8 +541,40 @@
     font-size: 0.9rem;
 }
 
-/* Адаптивность для мобильных устройств */
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 1024px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+    }
+}
+
 @media (max-width: 768px) {
+    .checkout-page {
+        padding: 120px 5vw 60px;
+    }
+
+    .page-title {
+        font-size: 2.4rem;
+        margin-bottom: 40px;
+    }
+
+    .checkout-form {
+        padding: 25px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
     .details-row {
         grid-template-columns: 1fr;
         gap: 10px;
