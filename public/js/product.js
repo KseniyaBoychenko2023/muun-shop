@@ -1,5 +1,7 @@
 // Получаем ID товара из URL
-const productId = window.location.pathname.split('/').pop();
+// const productId = window.location.pathname.split('/').pop();
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
 
 // Загружаем данные товара при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
