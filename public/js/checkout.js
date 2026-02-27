@@ -1,22 +1,5 @@
 const API_URL = 'https://muun-backend.onrender.com/api';
-let DADATA_API_KEY = '';
-
-async function loadConfig() {
-    try {
-        const API_URL = window.location.hostname === 'localhost' 
-            ? 'http://localhost:3000/api'
-            : 'https://muun-backend.onrender.com/api';
-            
-        const response = await fetch(`${API_URL}/config`);
-        if (!response.ok) throw new Error('Failed to load config');
-        
-        const config = await response.json();
-        DADATA_API_KEY = config.dadataApiKey;
-        console.log('DaData API key loaded');
-    } catch (error) {
-        console.error('Error loading config:', error);
-    }
-}
+let DADATA_API_KEY = 'd64851bfdae4f4873e0cb6966f82cee34f042566';
 
 // Проверка авторизации при загрузке
 document.addEventListener('DOMContentLoaded', async () => {
@@ -26,9 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '/login.html?redirect=checkout';
         return;
     }
-
-    // Загружаем конфигурацию
-    await loadConfig();
 
     // Загружаем корзину
     await loadCartForCheckout();
