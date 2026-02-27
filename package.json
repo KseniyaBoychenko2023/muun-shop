@@ -4,5 +4,8 @@
   "scripts": {
     "backup": "node backup.js",
     "sync": "node backup.js"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
   }
 }
