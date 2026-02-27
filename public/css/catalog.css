@@ -1,0 +1,280 @@
+main {
+  padding-top: 140px;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 80px;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+  color: #1a1a1a;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 50px 35px;
+}
+
+.product-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 18px;
+  filter: grayscale(15%);
+  transition: filter 0.4s ease, transform 0.6s ease;
+}
+
+.product-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #777;
+  font-weight: 300;
+}
+
+/* Стили для карточки товара с действиями */
+.product-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fav-btn,
+.cart-btn {
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+  border-radius: 2px;
+}
+
+.fav-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #4a4a4a;
+}
+
+.fav-btn:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.fav-btn.active {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
+}
+
+.cart-btn {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+}
+
+.cart-btn:hover {
+  background: #333;
+}
+
+.new-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #1a1a1a;
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+  border-radius: 2px;
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .products-grid {
+    gap: 40px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 120px;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    margin-bottom: 50px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 35px 20px;
+  }
+
+  .product-actions {
+    opacity: 1;
+    transform: none;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fav-btn,
+  .cart-btn {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+
+
+
+
+
+
+.catalog-controls {
+    margin-bottom: 90px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #eee;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+}
+
+.search-bar .btn {
+    padding: 12px 30px;
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+}
+.search-bar .btn:hover {
+    background: #1a1a1a;
+    color: white;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 120px;
+}
+
+.filter-group label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 8px 10px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: #1a1a1a;
+}
+
+.filter-group input[type="number"] {
+    width: 100px;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.filter-group input[type="number"]::-webkit-outer-spin-button,
+.filter-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filters .btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+}
+
+/* Адаптивность для фильтров */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    .filter-group input[type="number"] {
+        width: 100%;
+    }
+    .filters .btn {
+        margin-left: 0;
+    }
+    .search-bar {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,674 @@
+.profile-page {
+  min-height: 100vh;
+  padding: 140px 5vw 80px;
+  background: #faf8f5;
+}
+
+.profile-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.profile-header p {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.profile-section {
+  background: white;
+  padding: 40px 45px;
+  margin-bottom: 30px;
+  border: none;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px 40px;
+}
+
+.info-item {
+  margin-bottom: 5px;
+}
+
+.info-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.info-value {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.edit-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 12px 35px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 30px;
+  font-family: 'Inter', sans-serif;
+  color: #4a4a4a;
+  border-radius: 2px;
+}
+
+.edit-btn:hover {
+  background: #1a1a1a;
+  color: white;
+  border-color: #1a1a1a;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 30px;
+  background: #faf8f5;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+}
+
+.empty-state p {
+  color: #888;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.empty-state .btn {
+  display: inline-block;
+  width: auto;
+  padding: 12px 35px;
+  font-size: 0.85rem;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  border-radius: 2px;
+}
+
+.empty-state .btn:hover {
+  background: #333;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 120px 5vw 60px;
+  }
+
+  .profile-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .profile-section {
+    padding: 30px 25px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+  }
+
+  .info-value {
+    font-size: 1.1rem;
+  }
+
+  .edit-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+.orders-container {
+    margin-top: 20px;
+}
+
+.order-card {
+    background: #f9f7f4;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 2px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.order-number {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.order-date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.order-status.processing {
+    background: #fff3e0;
+    color: #e67e22;
+}
+
+.order-status.shipped {
+    background: #e1f0fa;
+    color: #2980b9;
+}
+
+.order-status.delivered {
+    background: #e1f7e1;
+    color: #27ae60;
+}
+
+.order-status.cancelled {
+    background: #fbe9e7;
+    color: #c0392b;
+}
+
+.order-items-list {
+    margin: 15px 0;
+}
+
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.95rem;
+}
+
+.order-item-row:last-child {
+    border-bottom: none;
+}
+
+.order-item-name {
+    color: #555;
+}
+
+.order-item-name small {
+    color: #999;
+    font-size: 0.8rem;
+    margin-left: 8px;
+}
+
+.order-item-price {
+    font-weight: 500;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #eee;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.order-total {
+    color: #1a1a1a;
+}
+
+.order-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.order-actions .btn-small {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+}
+
+.empty-orders {
+    text-align: center;
+    padding: 60px 30px;
+    background: #faf8f5;
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
+}
+
+.empty-orders p {
+    color: #888;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.empty-orders .btn {
+    display: inline-block;
+    width: auto;
+    padding: 12px 35px;
+}
+
+
+/* Стили для модального окна отмены */
+.cancel-modal-content {
+    max-width: 400px;
+    text-align: center;
+}
+
+.warning-icon {
+    width: 70px;
+    height: 70px;
+    background: #e74c3c;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 20px auto 25px;
+}
+
+.warning-message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.warning-submessage {
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Стили для модального окна деталей заказа */
+.details-modal-content {
+    max-width: 600px;
+}
+
+.order-details-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-details-number {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.order-details-date {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.order-details-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.order-details-address {
+    background: #f9f7f4;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 2px;
+}
+
+.order-details-address h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.order-details-address p {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.order-details-items {
+    margin: 20px 0;
+}
+
+.order-details-items h4 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.order-details-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.order-details-item:last-child {
+    border-bottom: none;
+}
+
+.order-details-item-info {
+    flex: 1;
+}
+
+.order-details-item-name {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.order-details-item-details {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.order-details-item-price {
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.order-details-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.order-details-total span:last-child {
+    color: #1a1a1a;
+}
+
+.delivery-info {
+    background: #f9f7f4;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 2px;
+}
+
+.delivery-info h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.delivery-info p {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.payment-method-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Стили для формы в модальном окне */
+.modal .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.modal .form-group label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.modal .form-group:focus-within label {
+    color: #1a1a1a;
+}
+
+.modal .form-group input {
+    padding: 12px 8px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s, padding 0.2s;
+    color: #1a1a1a;
+    width: 100%;
+}
+
+.modal .form-group input:focus {
+    outline: none;
+    border-bottom-color: #1a1a1a;
+    padding-left: 5px;
+}
+
+.modal .form-group input::placeholder {
+    color: #bbb;
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.modal .form-group input:focus::placeholder {
+    opacity: 1;
+}
+
+/* Стили для сообщений в модальном окне */
+.modal .error-message,
+.modal .info-message,
+.modal .success-message {
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    animation: slideDown 0.3s ease;
+}
+
+.modal .error-message {
+    background: #fef6f6;
+    color: #b45a5a;
+    border: 1px solid #fde2e2;
+}
+
+.modal .info-message {
+    background: #f8f7f5;
+    color: #666;
+    border: 1px solid #efefef;
+}
+
+.modal .success-message {
+    background: #f6faf6;
+    color: #2d6a4f;
+    border: 1px solid #e3f0e3;
+}
+
+/* Анимация для сообщений */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для кнопок в модальном окне */
+.modal .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.modal .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+.modal .btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.modal .btn:active {
+    transform: translateY(0);
+}
+
+.modal .btn-outline {
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+.modal .btn-outline:hover {
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+/* Специально для кнопок в модальном окне отмены */
+.cancel-modal-content .modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cancel-modal-content .modal-footer .btn {
+    flex: 1;
+    max-width: 160px;
+}
+
+/* Для модального окна деталей заказа */
+.details-modal-content .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.details-modal-content .modal-footer .btn {
+    min-width: 100px;
+    margin-right: 15px;
+}
+
+/* Для модального окна успеха в checkout */
+.success-modal-content .modal-footer {
+    display: flex;
+    gap: 12px;
+}
+
+.success-modal-content .modal-footer .btn {
+    flex: 1;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | MUUN</title>
+    <link rel="icon" type="image/x-icon" href="pic/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MUUN</a>
+            <div class="nav-links">
+                <a href="novinki.html">Новинки</a>
+                <a href="catalog.html">Коллекции</a>
+                <a href="base.html">База</a>
+                <a href="about.html">О бренде</a>
+            </div>
+            <div class="right-menu">
+            </div>
+        </nav>
+    </header>
+    <main class="profile-page">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h1>Личный кабинет</h1>
+                <p id="user-email">Загрузка...</p>
+            </div>
+
+            <!-- Информация о пользователе -->
+            <div class="profile-section">
+                <h2 class="section-title">Мои данные</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Имя</div>
+                        <div class="info-value" id="user-name">—</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value" id="user-email-display">—</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Дата регистрации</div>
+                        <div class="info-value" id="user-created">—</div>
+                    </div>
+                </div>
+                <button class="edit-btn">Редактировать</button>
+            </div>
+
+            <!-- История заказов -->
+            <div class="profile-section">
+                <h2 class="section-title">Мои заказы</h2>
+                <div id="orders-container" class="orders-container">
+                    <!-- Заказы загрузятся динамически -->
+                    <div class="loading">Загрузка заказов...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Модальное окно подтверждения отмены заказа -->
+    <div id="cancel-order-modal" class="modal" style="display: none;">
+        <div class="modal-content cancel-modal-content">
+            <div class="modal-header">
+                <h3>Подтверждение отмены</h3>
+                <button class="modal-close" onclick="closeCancelModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-icon">!</div>
+                <p class="warning-message">Вы уверены, что хотите отменить заказ?</p>
+                <p class="warning-submessage">Это действие нельзя будет отменить.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeCancelModal()">Нет, вернуться</button>
+                <button class="btn" id="confirm-cancel-btn">Да, отменить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно с деталями заказа -->
+    <div id="order-details-modal" class="modal" style="display: none;">
+        <div class="modal-content details-modal-content">
+            <div class="modal-header">
+                <h3>Детали заказа</h3>
+                <button class="modal-close" onclick="closeDetailsModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="order-details-body">
+                <!-- Содержимое загрузится динамически -->
+                <div class="loading">Загрузка...</div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeDetailsModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

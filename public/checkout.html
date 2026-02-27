@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа | MUUN</title>
+    <link rel="icon" type="image/x-icon" href="pic/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/checkout.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MUUN</a>
+            <div class="nav-links">
+                <a href="novinki.html">Новинки</a>
+                <a href="catalog.html">Коллекции</a>
+                <a href="base.html">База</a>
+                <a href="about.html">О бренде</a>
+            </div>
+            <div class="right-menu">
+            </div>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+        <div class="checkout-container">
+            <h1 class="page-title">Оформление заказа</h1>
+            
+            <div class="checkout-content">
+                <!-- Форма доставки -->
+                <div class="checkout-form">
+                    <h2 class="section-title">Данные получателя</h2>
+                    
+                    <div id="error-message" class="error-message" style="display: none;"></div>
+                    
+                    <form id="checkout-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="recipient">Получатель *</label>
+                                <input type="text" id="recipient" name="recipient" placeholder="Иванова Анна" value="" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Телефон *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" value="" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Адрес доставки</h2>
+
+                        <div class="form-row">
+                            <div class="form-group city-selector">
+                                <label for="city">Город *</label>
+                                <input type="text" id="city" name="city" placeholder="Начните вводить город..." value="" autocomplete="off">
+                                <div id="city-dropdown" class="city-dropdown"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group address-selector">
+                                <label for="address">Улица, дом *</label>
+                                <input type="text" id="address" name="address" placeholder="Начните вводить улицу и дом..." value="" autocomplete="off">
+                                <div id="address-dropdown" class="address-dropdown"></div>
+                            </div>
+                        </div>
+
+                        <!-- Новые поля для подъезда, этажа и квартиры -->
+                        <div class="form-row details-row">
+                            <div class="form-group small">
+                                <label for="entrance">Подъезд</label>
+                                <input type="text" id="entrance" name="entrance" placeholder="1" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group small">
+                                <label for="floor">Этаж</label>
+                                <input type="text" id="floor" name="floor" placeholder="3" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group small">
+                                <label for="apartment">Квартира</label>
+                                <input type="text" id="apartment" name="apartment" placeholder="5" value="" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postal-code">Почтовый индекс</label>
+                                <input type="text" id="postal-code" name="postal-code" 
+                                       placeholder="101000" value="" autocomplete="off" readonly>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Способ оплаты</h2>
+
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="card" checked>
+                                <span class="payment-radio"></span>
+                                <span class="payment-label">Банковской картой</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="cash">
+                                <span class="payment-radio"></span>
+                                <span class="payment-label">Наличными при получении</span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-large" id="submit-order">
+                                Подтвердить заказ
+                            </button>
+                            <a href="cart.html" class="btn btn-outline btn-large">Вернуться в корзину</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Боковая панель с заказом -->
+                <div class="order-summary" id="order-summary">
+                    <h2 class="summary-title">Ваш заказ</h2>
+                    <div id="order-items-list" class="order-items">
+                        <!-- Товары загрузятся динамически -->
+                        <div class="loading">Загрузка корзины...</div>
+                    </div>
+                    <div class="summary-total">
+                        <span>Итого</span>
+                        <span id="order-total">0 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно успешного заказа -->
+    <div id="success-modal" class="modal" style="display: none;">
+        <div class="modal-content success-modal-content">
+            <div class="modal-header">
+                <h3>Заказ оформлен!</h3>
+                <button class="modal-close" onclick="closeSuccessModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">✓</div>
+                <p class="success-message">Ваш заказ успешно оформлен</p>
+                <p class="order-number" id="order-number">Номер заказа: </p>
+                <p class="order-info">Статус заказа: <strong>Обрабатывается</strong></p>
+                <p class="order-info">Вы можете отслеживать статус в личном кабинете</p>
+            </div>
+            <div class="modal-footer">
+                <a href="profile.html" class="btn">Личный кабинет</a>
+                <a href="catalog.html" class="btn btn-outline">Продолжить покупки</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем jQuery (необходим для DaData) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Подключаем DaData -->
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@22.6.0/dist/js/jquery.suggestions.min.js"></script>
+    
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

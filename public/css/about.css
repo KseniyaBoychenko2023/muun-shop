@@ -1,0 +1,121 @@
+main {
+  padding-top: 160px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 100px;
+}
+
+h1 {
+  font-size: 3.8rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.about-text {
+  font-size: 1.3rem;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto 100px;
+  text-align: center;
+  color: #4a4a4a;
+  background: rgba(140, 152, 175, 0.06);
+  padding: 60px 80px;
+  border-radius: 2px;
+  line-height: 1.7;
+}
+
+.about-text p {
+  margin-bottom: 1.5em;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.signature {
+  font-family: 'Times New Roman', serif;
+  font-size: 3rem;
+  font-style: italic;
+  text-align: center;
+  color: #555;
+  margin: 100px 0 60px;
+  letter-spacing: 0;
+  opacity: 0.8;
+  position: relative;
+}
+
+.signature::before,
+.signature::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: #ddd;
+}
+
+.signature::before {
+  left: calc(50% - 100px);
+}
+
+.signature::after {
+  right: calc(50% - 100px);
+}
+
+@media (max-width: 1024px) {
+  .about-text {
+    padding: 50px 40px;
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 140px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+  }
+
+  .about-text {
+    font-size: 1.15rem;
+    padding: 40px 30px;
+    margin-bottom: 60px;
+  }
+
+  .signature {
+    font-size: 2.4rem;
+    margin: 80px 0 40px;
+  }
+
+  .signature::before,
+  .signature::after {
+    width: 30px;
+  }
+
+  .signature::before {
+    left: calc(50% - 60px);
+  }
+
+  .signature::after {
+    right: calc(50% - 60px);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text {
+    padding: 30px 20px;
+  }
+
+  .signature::before,
+  .signature::after {
+    display: none;
+  }
+}

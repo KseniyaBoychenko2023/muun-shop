@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Избранное | MUUN</title>
+    <link rel="icon" type="image/x-icon" href="pic/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/favorites.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">MUUN</a>
+            <div class="nav-links">
+                <a href="novinki.html">Новинки</a>
+                <a href="catalog.html">Коллекции</a>
+                <a href="base.html">База</a>
+                <a href="about.html">О бренде</a>
+            </div>
+            <div class="right-menu">
+            </div>
+        </nav>
+    </header>
+    <main class="favorites-page">
+        <div class="favorites-container">
+            <h1 class="page-title">Избранное</h1>
+            <div class="favorites-grid" id="favorites-grid">
+                <!-- Товары загрузятся динамически -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно выбора размера -->
+    <div id="size-selector-modal" class="modal size-modal" style="display: none;">
+        <div class="modal-content size-modal-content">
+            <div class="modal-header">
+                <h3>Выберите размер</h3>
+                <button class="modal-close" onclick="closeSizeSelectorModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="size-options-modal" id="modal-size-options">
+                    <label class="size-option">
+                        <input type="radio" name="modal-size" value="XS">
+                        <span>XS</span>
+                    </label>
+                    <label class="size-option">
+                        <input type="radio" name="modal-size" value="S">
+                        <span>S</span>
+                    </label>
+                    <label class="size-option">
+                        <input type="radio" name="modal-size" value="M">
+                        <span>M</span>
+                    </label>
+                    <label class="size-option">
+                        <input type="radio" name="modal-size" value="L">
+                        <span>L</span>
+                    </label>
+                    <label class="size-option">
+                        <input type="radio" name="modal-size" value="XL">
+                        <span>XL</span>
+                    </label>
+                </div>
+                <button class="btn btn-full confirm-size-btn" onclick="confirmAddToCart()">Добавить в корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

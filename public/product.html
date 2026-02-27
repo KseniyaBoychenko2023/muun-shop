@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUUN</title>
+    <link rel="icon" type="image/x-icon" href="../pic/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <link href="/css/product.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">MUUN</a>
+            <div class="nav-links">
+                <a href="../novinki.html">Новинки</a>
+                <a href="../catalog.html">Коллекции</a>
+                <a href="../base.html">База</a>
+                <a href="../about.html">О бренде</a>
+            </div>
+            <div class="right-menu">
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <div class="product-container" id="product-container">
+            <!-- Здесь будет загружаться информация о товаре -->
+            <div class="loading">Загрузка товара...</div>
+        </div>
+    </main>
+
+    <!-- Модальное окно для размерной сетки -->
+    <div id="size-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Размерная сетка</h3>
+                <button class="modal-close" onclick="closeSizeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Размер</th>
+                            <th>Обхват груди (см)</th>
+                            <th>Обхват талии (см)</th>
+                            <th>Обхват бедер (см)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XS</td>
+                            <td>80-84</td>
+                            <td>60-64</td>
+                            <td>88-92</td>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>84-88</td>
+                            <td>64-68</td>
+                            <td>92-96</td>
+                        </tr>
+                        <tr>
+                            <td>M</td>
+                            <td>88-92</td>
+                            <td>68-72</td>
+                            <td>96-100</td>
+                        </tr>
+                        <tr>
+                            <td>L</td>
+                            <td>92-96</td>
+                            <td>72-76</td>
+                            <td>100-104</td>
+                        </tr>
+                        <tr>
+                            <td>XL</td>
+                            <td>96-100</td>
+                            <td>76-80</td>
+                            <td>104-108</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="size-note">* Если ваши параметры находятся на границе размеров, рекомендуем выбрать больший размер для более комфортной посадки.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/product.js"></script>
+</body>
+</html>

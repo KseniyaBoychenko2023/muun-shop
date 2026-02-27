@@ -1,0 +1,603 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #faf8f5;
+  color: #1a1a1a;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: rgba(250, 248, 245, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+nav {
+  max-width: 1480px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.nav-links a {
+  color: #4a4a4a;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #1a1a1a;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1a1a1a;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: #1a1a1a;
+}
+
+.right-menu {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.right-menu a {
+  color: #4a4a4a;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.right-menu a:hover {
+  color: #1a1a1a;
+}
+
+/* Стили для авторизованного пользователя */
+.user-menu {
+  position: relative;
+  display: inline-block;
+  z-index: 3000; 
+}
+
+.user-name {
+  cursor: pointer;
+  color: #4a4a4a;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #bbb;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -16px;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  z-index: 3000;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+}
+
+.user-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid white;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.02));
+}
+
+.user-dropdown::after {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: transparent;
+}
+
+.user-menu:hover .user-dropdown {
+  display: block;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  color: #4a4a4a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 1px solid #f2f2f2;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.user-dropdown a:last-child,
+.user-dropdown button:last-child {
+  border-bottom: none;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background: #faf8f5;
+  color: #1a1a1a;
+  padding-left: 30px;
+}
+
+.user-dropdown .logout-btn {
+  color: #b45a5a;
+}
+
+.user-dropdown .logout-btn:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* Стили для счетчиков */
+.fav-count, .cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  background: #1a1a1a;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  border-radius: 18px;
+  margin-left: 8px;
+  padding: 0 5px;
+  transition: transform 0.2s;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: #1a1a1a;
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+}
+
+.btn-outline:hover {
+  background: #1a1a1a;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Заголовки страниц */
+.page-title {
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.notification {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    padding: 16px 28px;
+    background: rgba(250, 248, 245, 0.85);
+    color: #4a4a4a;
+    border: 1px solid #ddd;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.185);
+    border-radius: 5px;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    min-width: 300px;
+    animation: slideInLeft 0.3s ease;
+}
+
+.notification::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #1a1a1a;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: none;
+}
+
+.notification.success::before, .notification.error::before, .notification.info::before {
+    background: #1a1a1a;
+}
+
+.notification.success, .notification.error, .notification.info {
+    background: rgba(250, 248, 245, 0.85);
+    border-color: 1px solid #ddd;
+    color: #4a4a4a;
+    border-left: none;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 70px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    gap: 20px;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+  }
+
+  .right-menu {
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .user-name {
+    font-size: 12px;
+  }
+
+  .user-dropdown {
+    min-width: 180px;
+    right: -8px;
+  }
+
+  .page-title {
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 12px;
+  }
+
+  .right-menu {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}
+
+/* ========== ОБЩИЕ СТИЛИ ДЛЯ МОДАЛЬНЫХ ОКОН ========== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    max-width: 700px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    animation: slideUp 0.4s ease;
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+    padding: 0 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #1a1a1a;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== МОДАЛЬНОЕ ОКНО ВЫБОРА РАЗМЕРА ========== */
+.size-modal .modal-content {
+    max-width: 400px;
+    padding: 0;
+}
+
+.size-modal .modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.size-modal .modal-header h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+.size-modal .modal-body {
+    padding: 30px 25px;
+}
+
+.size-options-modal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.size-options-modal .size-option {
+    flex: 0 0 auto;
+}
+
+.size-options-modal .size-option span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+    border: 1px solid #e0e0e0;
+    background: transparent;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.2s;
+    border-radius: 2px;
+}
+
+.size-options-modal .size-option:hover span {
+    border-color: #999;
+    background: #f9f7f4;
+}
+
+.size-options-modal .size-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.size-options-modal .size-option input:checked + span {
+    border-color: #1a1a1a;
+    background: #1a1a1a;
+    color: white;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 0.9rem;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.btn-full:hover {
+    background: #333;
+}
+
+.confirm-size-btn {
+    margin-top: 10px;
+}
+
+@keyframes slideDownAndFade {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 480px) {
+    .size-modal .modal-content {
+        width: 95%;
+    }
+    
+    .size-options-modal .size-option span {
+        min-width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+    
+    .size-modal .modal-body {
+        padding: 20px;
+    }
+}

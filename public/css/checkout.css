@@ -1,0 +1,559 @@
+.checkout-page {
+    padding: 140px 5vw 80px;
+    min-height: 100vh;
+    background: #f9f7f4;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Форма */
+.checkout-form {
+    background: white;
+    padding: 40px;
+    border: 1px solid #eee;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.section-title:first-of-type {
+    margin-top: 0;
+}
+
+.form-row {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    background: white;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Способ оплаты */
+.payment-methods {
+    margin: 20px 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+.payment-option:hover {
+    background: #f9f7f4;
+    border-color: #ddd;
+}
+
+.payment-option input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.payment-radio {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.payment-option input:checked + .payment-radio {
+    border-color: #1a1a1a;
+}
+
+.payment-option input:checked + .payment-radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: #1a1a1a;
+    border-radius: 50%;
+}
+
+.payment-label {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Кнопки формы */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-actions .btn, .form-actions a{
+    flex: 1;
+    padding: 16px 24px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+/* Боковая панель с заказом */
+.order-summary {
+    background: white;
+    padding: 30px;
+    border: 1px solid #eee;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-items {
+    margin-bottom: 25px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item-image {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.order-item-info h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.order-item-details {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.order-item-details span {
+    display: block;
+    margin-top: 3px;
+}
+
+.order-item-price {
+    font-weight: 500;
+    color: #000;
+    white-space: nowrap;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000;
+}
+
+/* Модальное окно успеха */
+.success-modal-content {
+    max-width: 450px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: #27ae60;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 20px auto 25px;
+}
+
+.success-message {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #27ae60;
+}
+
+.order-number {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.order-info {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 15px;
+    padding: 25px 30px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.modal-footer .btn, a.btn {
+    flex: 1;
+    margin: 0;
+    min-width: 160px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-page {
+        padding: 120px 5vw 60px;
+    }
+    
+    .page-title {
+        font-size: 2.4rem;
+        margin-bottom: 40px;
+    }
+    
+    .checkout-form {
+        padding: 25px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+}
+
+/* ========== СТИЛИ ДЛЯ ОШИБОК ВАЛИДАЦИИ ========== */
+
+/* Общее сообщение об ошибке */
+.error-message {
+    background: #fef6f6;
+    color: #e74c3c;
+    border: 1px solid #fde2e2;
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    text-align: center;
+    animation: slideDown 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.1);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.error-message::before {
+    content: '!';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+/* Поле с ошибкой */
+.form-group input.error {
+    border-color: #e74c3c;
+    background: #fef6f6;
+    animation: shake 0.3s ease;
+}
+
+.form-group input.error:focus {
+    border-color: #c0392b;
+    background: #fff;
+}
+
+.form-group input.error::placeholder {
+    color: #e74c3c;
+    opacity: 0.7;
+}
+
+/* Сообщение под полем */
+.field-error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    padding-left: 5px;
+    animation: fadeIn 0.3s ease;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+/* Анимации */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Улучшенные стили для placeholder */
+.form-group input::placeholder {
+    color: #aaa;
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.form-group input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* Стили для сообщения "Вы пропустили это поле" */
+.field-error-message.required {
+    font-style: italic;
+}
+
+.field-error-message.required::before {
+    content: '⚠ ';
+    font-size: 0.9rem;
+}
+
+/* ========== СТИЛИ ДЛЯ DADATA ========== */
+
+.city-selector, .address-selector {
+    position: relative;
+}
+
+.city-dropdown, .address-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    border-radius: 0 0 4px 4px;
+}
+
+.city-dropdown.active, .address-dropdown.active {
+    display: block;
+}
+
+.city-dropdown-item, .address-dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.95rem;
+    color: #333;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.city-dropdown-item:last-child, .address-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.city-dropdown-item:hover, .address-dropdown-item:hover {
+    background: #f9f7f4;
+}
+
+.city-dropdown-item.selected, .address-dropdown-item.selected {
+    background: #f0f0f0;
+    font-weight: 500;
+}
+
+/* Стили для сообщения "Ничего не найдено" */
+.city-dropdown-empty, .address-dropdown-empty {
+    padding: 15px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Подсветка при наборе текста */
+#city.highlight, #address.highlight {
+    border-color: #1a1a1a;
+    background: white;
+}
+
+/* Стили для выбранного города/адреса */
+#city.valid, #address.valid {
+    border-color: #27ae60;
+    background: #f0f9f0;
+}
+
+#city.valid:focus, #address.valid:focus {
+    border-color: #27ae60;
+}
+
+/* Стили для поля индекса (только для чтения) */
+#postal-code {
+    background: #f5f5f5;
+    cursor: default;
+}
+
+#postal-code:focus {
+    border-color: #e0e0e0;
+    background: #f5f5f5;
+}
+
+/* Стили для ряда с дополнительными полями */
+.details-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group.small {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.small input {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: #fafafa;
+}
+
+.form-group.small input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    background: white;
+}
+
+.form-group.small input::placeholder {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .details-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}

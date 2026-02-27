@@ -1,0 +1,182 @@
+.favorites-page {
+    padding: 140px 5vw 80px;
+    min-height: 100vh;
+    background: #f9f7f4;
+}
+
+.favorites-container {
+    max-width: 1480px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+/* Пустое состояние */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+    border: 1px solid #eee;
+    max-width: 500px;
+    margin: 0 auto;
+    grid-column: 1 / -1;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.empty-state .btn {
+    display: inline-block;
+    width: auto;
+    padding: 14px 40px;
+}
+
+/* Сетка избранного */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px 30px;
+}
+
+.favorites-grid:empty {
+    display: block;
+}
+
+.favorites-grid:has(.empty-state:only-child) .empty-state {
+    margin: 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.favorites-grid:has(.empty-state:only-child) {
+    display: grid;
+    place-items: center;
+}
+
+.favorite-card {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.favorite-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.favorite-info {
+    pointer-events: none; /* Чтобы текст не перехватывал клики */
+}
+
+.favorite-info button {
+    pointer-events: auto; /* Кнопки должны быть кликабельны */
+}
+
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.remove-btn:hover {
+    background: #000;
+    color: white;
+}
+
+.favorite-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.favorite-info {
+    text-align: center;
+}
+
+.favorite-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.favorite-price {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    background: none;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.add-to-cart-btn:hover {
+    background: #000;
+    color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .favorites-page {
+        padding: 120px 5vw 60px;
+    }
+
+    .page-title {
+        font-size: 2.4rem;
+        margin-bottom: 40px;
+    }
+
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 30px 20px;
+    }
+
+    .favorite-card {
+        padding: 15px;
+    }
+
+    .favorite-title {
+        font-size: 1rem;
+    }
+
+    .add-to-cart-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}

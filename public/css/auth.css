@@ -1,0 +1,537 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 5vw 80px;
+  background: linear-gradient(135deg, #faf8f5 0%, #f5f2ed 100%);
+  position: relative;
+}
+
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+}
+
+.auth-container {
+  max-width: 440px;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 50px 45px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+}
+
+.auth-title {
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  letter-spacing: 0.3px;
+}
+
+/* Форма авторизации */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.form-group:focus-within label {
+  color: #1a1a1a;
+}
+
+.form-group input {
+  padding: 12px 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, padding 0.2s;
+  color: #1a1a1a;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-bottom-color: #1a1a1a;
+  padding-left: 5px;
+}
+
+.form-group input::placeholder {
+  color: #bbb;
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.form-group input:focus::placeholder {
+  opacity: 1;
+}
+
+/* Иконки для полей */
+.form-group.with-icon {
+  position: relative;
+}
+
+.form-group.with-icon input {
+  padding-left: 30px;
+}
+
+.form-group.with-icon .icon {
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+  color: #bbb;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.form-group.with-icon:focus-within .icon {
+  color: #1a1a1a;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background: #1a1a1a;
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+}
+
+.btn-outline:hover {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Ссылки под формой */
+.auth-links {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.auth-link {
+  display: inline-block;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  position: relative;
+  padding: 0 15px;
+}
+
+.auth-link:first-child {
+  padding-left: 0;
+}
+
+.auth-link:last-child {
+  padding-right: 0;
+}
+
+.auth-link:not(:last-child)::after {
+  content: '·';
+  position: absolute;
+  right: -3px;
+  color: #ddd;
+}
+
+.auth-link:hover {
+  color: #1a1a1a;
+}
+
+/* Сообщения */
+.error-message,
+.info-message,
+.success-message {
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 2px;
+  animation: slideDown 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-message {
+  background: #fef6f6;
+  color: #b45a5a;
+  border: 1px solid #fde2e2;
+}
+
+.info-message {
+  background: #f8f7f5;
+  color: #666;
+  border: 1px solid #efefef;
+}
+
+.success-message {
+  background: #f6faf6;
+  color: #2d6a4f;
+  border: 1px solid #e3f0e3;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Профиль пользователя в шапке */
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  cursor: pointer;
+  color: #4a4a4a;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #bbb;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.user-name:hover {
+  color: #1a1a1a;
+  border-bottom-color: #1a1a1a;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -16px;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+}
+
+.user-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid white;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.02));
+}
+
+.user-dropdown::after {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: transparent;
+}
+
+.user-menu:hover .user-dropdown {
+  display: block;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-dropdown a,
+.user-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  color: #4a4a4a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, padding 0.2s;
+  border-bottom: 1px solid #f2f2f2;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.user-dropdown a:last-child,
+.user-dropdown button:last-child {
+  border-bottom: none;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+  background: #faf8f5;
+  color: #1a1a1a;
+  padding-left: 30px;
+}
+
+.user-dropdown .logout-btn {
+  color: #b45a5a;
+}
+
+.user-dropdown .logout-btn:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* Счетчики */
+.fav-count,
+.cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  background: #1a1a1a;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  border-radius: 18px;
+  margin-left: 8px;
+  padding: 0 5px;
+  transition: transform 0.2s;
+}
+
+.user-dropdown a:hover .fav-count,
+.user-dropdown a:hover .cart-count {
+  transform: scale(1.1);
+  background: #333;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .auth-page {
+    padding: 100px 5vw 60px;
+    align-items: flex-start;
+  }
+
+  .auth-container {
+    padding: 40px 30px;
+  }
+
+  .auth-title {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+  }
+
+  .auth-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 35px;
+  }
+
+  .form-group input {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 14px 32px;
+    font-size: 0.8rem;
+  }
+
+  .auth-links {
+    margin-top: 25px;
+    padding-top: 20px;
+  }
+
+  .auth-link {
+    font-size: 0.85rem;
+  }
+
+  .user-dropdown {
+    min-width: 180px;
+    right: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 30px 20px;
+  }
+
+  .auth-title {
+    font-size: 2rem;
+  }
+
+  .auth-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .auth-link {
+    padding: 0;
+  }
+
+  .auth-link::after {
+    display: none;
+  }
+}
+
+/* Анимация появления формы */
+.auth-container {
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Стили для чекбокса (если понадобится) */
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: #1a1a1a;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Разделитель */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #bbb;
+  font-size: 0.8rem;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.divider span {
+  margin: 0 15px;
+}
