@@ -1,13 +1,21 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 
 // Определяем путь к базе данных в зависимости от окружения
 const getDbPath = () => {
     if (process.env.NODE_ENV === 'production') {
-        // В production на Render используем /tmp/
-        return path.join('/tmp', 'muun.db');
+        const sourceDb = path.join(__dirname, 'muun.db');
+        const destDb = '/tmp/muun.db';
+        if (fs.existsSync(sourceDb)) {
+            fs.copyFileSync(sourceDb, destDb);
+            console.log('База данных скопирована из репозитория в /tmp');
+        } else {
+            console.log('База данных не найдена в репозитории, будет создана новая');
+        }
+        
+        return destDb;
     }
-    // В разработке используем локальную папку
     return path.join(__dirname, 'muun.db');
 };
 
