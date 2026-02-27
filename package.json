@@ -1,0 +1,8 @@
+{
+  "name": "muun",
+  "version": "1.0.0",
+  "scripts": {
+    "backup": "node backup.js",
+    "sync": "node backup.js"
+  }
+}
