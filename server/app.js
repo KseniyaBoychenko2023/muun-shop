@@ -21,9 +21,6 @@ app.use(express.urlencoded({ extended: true })); // Парсим данные и
 // Инициализируем базу данных при запуске
 initializeDatabase();
 
-// Отдаем статические файлы из папки public
-app.use(express.static(path.join(__dirname, '../public')));
-
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/login.html'));
 });
@@ -61,6 +58,8 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/product/:id', (req, res) => {
+    console.log('Запрос на /product/:id с ID:', req.params.id);
+    console.log('Путь к файлу:', path.join(__dirname, '../public/product.html'));
     res.sendFile(path.join(__dirname, '../public/product.html'));
 });
 
@@ -75,6 +74,9 @@ const productRoutes = require('./routes/products');
 const favoriteRoutes = require('./routes/favorites');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/orders');
+
+// Отдаем статические файлы из папки public
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
