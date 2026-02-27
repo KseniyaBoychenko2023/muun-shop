@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
+const configRoutes = require('./routes/config');
 
 // Загружаем переменные окружения
 dotenv.config({ path: path.join(__dirname, '../.env') });
@@ -80,6 +81,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api', configRoutes);
 
 app.get('/checkout', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/checkout.html'));

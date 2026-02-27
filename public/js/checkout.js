@@ -1,4 +1,22 @@
-const DADATA_API_KEY = '71ee341df04eda72e318f1d6cf7eec3b2a1847f0';
+const API_URL = 'https://muun-backend.onrender.com/api';
+let DADATA_API_KEY = '';
+
+async function loadConfig() {
+    try {
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000/api'
+            : 'https://muun-backend.onrender.com/api';
+            
+        const response = await fetch(`${API_URL}/config`);
+        if (!response.ok) throw new Error('Failed to load config');
+        
+        const config = await response.json();
+        DADATA_API_KEY = config.dadataApiKey;
+        console.log('DaData API key loaded');
+    } catch (error) {
+        console.error('Error loading config:', error);
+    }
+}
 
 // Проверка авторизации при загрузке
 document.addEventListener('DOMContentLoaded', async () => {
@@ -8,6 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '/login.html?redirect=checkout';
         return;
     }
+
+    // Загружаем конфигурацию
+    await loadConfig();
 
     // Загружаем корзину
     await loadCartForCheckout();
@@ -23,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initInputValidation();
     initCityDadata();
     initAddressDadata();
+    initAdditionalFields();
 });
 
 // ========== МАСКА ДЛЯ ТЕЛЕФОНА ==========
@@ -682,29 +704,6 @@ function initAdditionalFields() {
         });
     }
 }
-
-// Обновим функцию инициализации в DOMContentLoaded
-document.addEventListener('DOMContentLoaded', async () => {
-    const token = localStorage.getItem('token');
-    
-    if (!token) {
-        window.location.href = '/login.html?redirect=checkout';
-        return;
-    }
-
-    await loadCartForCheckout();
-    
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    if (user.name) {
-        document.getElementById('recipient').value = user.name;
-    }
-    
-    initPhoneMask();
-    initInputValidation();
-    initCityDadata();
-    initAddressDadata();
-    initAdditionalFields(); // Добавляем инициализацию дополнительных полей
-});
 
 // ========== ЗАГРУЗКА КОРЗИНЫ ==========
 async function loadCartForCheckout() {
