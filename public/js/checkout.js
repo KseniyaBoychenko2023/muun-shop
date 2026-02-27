@@ -1,4 +1,3 @@
-const API_URL = 'https://muun-backend.onrender.com/api';
 let DADATA_API_KEY = 'd64851bfdae4f4873e0cb6966f82cee34f042566';
 
 // Проверка авторизации при загрузке
